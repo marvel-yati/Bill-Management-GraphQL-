@@ -7,10 +7,14 @@ const Schema = gql`
     amount: String
     date: String
   }
+  input Category{
+    category: String
+  }
   #handle bills commands
   type Query {
     getAllBills: [Bill] #will return multiple Person instances
     getBill(id: Int): Bill 
+    getFilteredBillsCategory(filter: String):[Bill]!
   }
   type Mutation{
     addBill(description:String,category:String,amount:String,date:String): Bill

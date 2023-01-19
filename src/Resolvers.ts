@@ -11,6 +11,12 @@ const Resolvers = {
       
       return bills.find((bill) => bill.id === args.id);
     },
+    getFilteredBillsCategory:(_:any,args:any) => {
+      
+      let get = bills.find(a => a.category === args.category)
+      console.log(get)
+      return bills.filter((bill) => bill.category == args.category)
+    }
   },
   Mutation:{
     addBill:(_: any,args: any) => {
