@@ -1,4 +1,5 @@
-let bills: { id:number;description:string;category:string;amount:string;date:string}[] = [
+import { IBill } from "./types";
+let bills: IBill[] = [
     {
         id: 1,
         description: "Dominoes",

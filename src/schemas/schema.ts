@@ -7,14 +7,24 @@ const Schema = gql`
     amount: String
     date: String
   }
+  input Bill1 {
+    id: ID!
+    description: String
+    category: String
+    amount: String
+    date: String
+  }
   input Category{
     category: String
   }
-  #handle bills commands
+  input Amount{
+    amount:Int
+  }
   type Query {
     getAllBills: [Bill] #will return multiple Person instances
     getBill(id: Int): Bill 
-    getFilteredBillsCategory(filter: String):[Bill]!
+    getBillsByCategory(filter: Category):[Bill]!
+    billsPaidInBudget(budget:Int):[Bill]
   }
   type Mutation{
     addBill(description:String,category:String,amount:String,date:String): Bill
@@ -24,4 +34,3 @@ const Schema = gql`
   }
 `;
 export default Schema; 
-//export this Schema so we can use it in our project
